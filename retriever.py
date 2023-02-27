@@ -40,7 +40,7 @@ class Retriever:
 
         heightlat = (width / aspect) / 69.0
         widthlong = width / 54.6
-        return BoundingBox(loc_coords[1] - (widthlong / 2),
-                           loc_coords[0] - (heightlat / 2),
-                           loc_coords[1] + (widthlong / 2),
-                           loc_coords[0] + (heightlat / 2))
+        return BoundingBox(loc_coords[0] - (widthlong / 2),
+                           loc_coords[1] - (heightlat / 2),
+                           loc_coords[0] + (widthlong / 2),
+                           loc_coords[1] + (heightlat / 2))
