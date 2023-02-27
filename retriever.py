@@ -14,16 +14,17 @@ class Retriever:
     def get_maptile(style, width, height, bbox):
         bbox_string = '[' + str(bbox.lowlong) + ',' + str(bbox.lowlat) + \
             ',' + str(bbox.uplong) + ',' + str(bbox.uplat) + ']'
-        res_string = str(width) + 'x' + str(height) + '@2x'
+        res_string = str(width) + 'x' + str(height + 80) + '@2x'
         auth_string = "?access_token=" + Retriever.api_key
         resp = requests.get('https://api.mapbox.com/styles/v1/' + style.value +
                             '/static/' + bbox_string + '/' +
                             res_string + auth_string, stream=True).raw
         mapimage = np.asarray(bytearray(resp.read()), dtype="uint8")
         mapimage = cv2.imdecode(mapimage, cv2.IMREAD_COLOR)
-        return mapimage
+        cropped = mapimage[0:(mapimage.shape[0] - 80), 0:mapimage.shape[1]]
+        return cropped
 
-    # returns coordinates of search string
+    # returns list of coordinates [long, lat] of search string location
     def get_coords(searchloc):
         search = searchloc.replace(" ", "%20")
         resp = requests.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" +
