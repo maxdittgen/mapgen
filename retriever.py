@@ -31,7 +31,7 @@ class Retriever:
     def get_bounding_box(searchloc, width, aspect):
         search = searchloc.replace(" ", "%20")
         resp = requests.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" +
-                            search + ".json?proximity=ip&access_token=" +
+                            search + ".json?access_token=" +
                             Retriever.api_key)
         data = resp.json()
 
