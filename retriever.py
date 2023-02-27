@@ -118,9 +118,3 @@ class Retriever:
         for i in range(len(lats)):
             bars.append(np.concatenate(tiles[i], axis=1))
         return np.concatenate(bars)
-
-    # given a style, location search string, map width (miles), and
-    # height and width in inches, returns a properly scaled poster-resolution
-
-    def get_map_test(style, searchloc, radius, width, height):
-        return Retriever.get_maptile(style, width, height, Retriever.get_bounding_box(Retriever.get_coords(searchloc), radius, width/height))
