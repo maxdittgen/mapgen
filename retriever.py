@@ -23,12 +23,8 @@ class Retriever:
         mapimage = cv2.imdecode(mapimage, cv2.IMREAD_COLOR)
         return mapimage
 
-    # Requires:
-    # - searchloc: a search string representing a location of center of map
-    # - width: float representing number of miles the image is wide
-    # - aspect: float representing width divided by height of desired map
-    # Returns: Bounding box object
-    def get_bounding_box(searchloc, width, aspect):
+    # returns coordinates of search string
+    def get_coords(searchloc):
         search = searchloc.replace(" ", "%20")
         resp = requests.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" +
                             search + ".json?access_token=" +
@@ -36,8 +32,14 @@ class Retriever:
         data = resp.json()
 
         # edit this to get full list of possibilities later on
-        loc_coords = ((data['features'])[0])['center']
+        return ((data['features'])[0])['center']
 
+    # Requires:
+    # - searchloc: a search string representing a location of center of map
+    # - width: float representing number of miles the image is wide
+    # - aspect: float representing width divided by height of desired map
+    # Returns: Bounding box object
+    def get_bounding_box(loc_coords, width, aspect):
         heightlat = (width / aspect) / 69.0
         widthlong = width / 54.6
         return BoundingBox(loc_coords[0] - (widthlong / 2),
