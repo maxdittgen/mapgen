@@ -85,8 +85,8 @@ a {
   display: block;
   position: fixed;
   width: 100vw;
-  height: 25px;
-  background-color: #000000;
+  height: 28px;
+  background-color: #005205;
   z-index: 1000;
 }
 
