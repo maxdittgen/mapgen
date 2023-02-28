@@ -117,10 +117,10 @@ class Retriever:
                 bboxes[i][j] = BoundingBox(
                     longs[j][0], lats[i][0], longs[j][1], lats[i][1])
 
-        print(str(bboxes[0][0]) + str(dims[0][0]) +
-              "\n" + str(bboxes[0][1]) + str(dims[0][1]) +
-              "\n" + str(bboxes[1][0]) + str(dims[1][0]) +
-              "\n" + str(bboxes[1][1]) + str(dims[1][1]))
+        # print(str(bboxes[0][0]) + str(dims[0][0]) +
+        #       "\n" + str(bboxes[0][1]) + str(dims[0][1]) +
+        #       "\n" + str(bboxes[1][0]) + str(dims[1][0]) +
+        #       "\n" + str(bboxes[1][1]) + str(dims[1][1]))
 
         # create matrix of map_tiles
         tiles = [[np.empty(0) for i in range(len(longs))] for j
