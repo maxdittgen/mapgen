@@ -7,15 +7,21 @@
 </div>
 
 <!-- carousel-->
-<div class="carousel">
-  <div id="image_1" class="car_image active">
-    <img id="boston" src="{{url_for('static', filename='images/boston.png')}}" alt="map of boston" />
+<div id="car_wrapper" class="wrapper">
+  <div id="wall_image" class="wall">
+    <img id="wall" src="{{url_for('static', filename='images/wall.png')}}" alt="blank gallery wall" />
   </div>
-  <div id="image_2" class="car_image left">
-    <img id="cornell" src="{{url_for('static', filename='images/cornell.png')}}" alt="map of cornell" />
-  </div>
-  <div id="image_3" class="car_image right">
-    <img id="pittsburgh" src="{{url_for('static', filename='images/pittsburgh.png')}}" alt="map of pittsburgh"/>
+  
+  <div class="carousel">
+    <div id="image_1" class="car_image active">
+      <img id="boston" src="{{url_for('static', filename='images/boston.png')}}" alt="map of boston" />
+    </div>
+    <div id="image_2" class="car_image left">
+      <img id="cornell" src="{{url_for('static', filename='images/cornell.png')}}" alt="map of cornell" />
+    </div>
+    <div id="image_3" class="car_image right">
+      <img id="pittsburgh" src="{{url_for('static', filename='images/pittsburgh.png')}}" alt="map of pittsburgh"/>
+    </div>
   </div>
 </div>
 
