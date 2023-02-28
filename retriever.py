@@ -35,13 +35,30 @@ class Retriever:
         # edit this to get full list of possibilities later on
         return ((data['features'])[0])['center']
 
+    # returns string represententing coordinates of location
+    def get_coords_string(searchloc):
+        coord = Retriever.get_coords(searchloc)
+        directions = []
+        if coord[0] < 0:
+            directions.append("W")
+            coord[0] = 0 - coord[0]
+        else:
+            directions.append("E")
+        if coord[1] < 0:
+            directions.append("S")
+            coord[1] = 0 - coord[1]
+        else:
+            directions.append("N")
+        return (str(coord[1])[:5] + "º " + directions[1] + ", " +
+                str(coord[0])[:5] + "º " + directions[0])
+
     # Requires:
     # - searchloc: a search string representing a location of center of map
     # - width: float representing number of miles the image is wide
     # - aspect: float representing width divided by height of desired map
     # Returns: Bounding box object
     def get_bounding_box(loc_coords, width, aspect):
-        heightlat = (width / aspect) / 69.0
+        heightlat = (width / aspect) / 69.172
         widthlong = width / 54.6
         return BoundingBox(loc_coords[0] - (widthlong / 2),
                            loc_coords[1] - (heightlat / 2),
