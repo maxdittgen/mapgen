@@ -7,6 +7,9 @@ from framemaker import FrameMaker
 # init flask
 app = Flask(__name__)
 
+# secret key
+app.config["SECRET_KEY"] = 'cb72c9bbe674d6d8488b0d5a383c81a3'
+
 # given a mapstyle enum, place search string, diameter (in miles), and width and
 # height in inches, generates a 300ppi png of the place
 
