@@ -119,16 +119,50 @@ a {
 
 .intro h1 {
   text-align: center;
+  font-size: min(40px, 5.5vw)
 }
 
 .samples img{
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
   width: 50%;
   height: auto;
   padding: 150px 25vw;
+  animation: fadeIn 2s;
 }
+
+.carousel {
+  position: relative;
+  width: 100vw;
+  height: 300px;
+  margin-top: auto;
+  overflow: hidden;
+}
+
+.car_image img{
+  position: absolute;
+  width: 50vw;
+  height: auto;
+  opacity: 0.4;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.car_image.active img {
+  opacity: 1;
+  margin-right: 25vw;
+  margin-left: 25v;
+}
+
+.car_image.left img{
+  transform: translateX(2.5px) scale(0.4);
+}
+
+.car_image.right img{
+  transform: translateX() scale(0.4);
+}
+
 
 @keyframes fadeIn {
   0% {

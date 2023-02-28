@@ -11,6 +11,20 @@
   <img id="boston" src="{{url_for('static', filename='images/boston.png')}}" alt="movie poster" />
 </div>
 
+<!-- carousel-->
+<div class="carousel">
+  <div id="image_1" class="car_image active">
+    <img id="boston" src="{{url_for('static', filename='images/boston.png')}}" alt="map of boston" />
+  </div>
+  <div id="image_2" class="car_image left">
+    <img id="cornell" src="{{url_for('static', filename='images/cornell.png')}}" alt="map of cornell" />
+  </div>
+  <div id="image_3" class="car_image right">
+    <img id="pittsburgh" src="{{url_for('static', filename='images/pittsburgh.png')}}" alt="map of pittsburgh" />
+  </div>
+</div>
+
+
 <!-- footer -->
 <p class="footer" id="credit">MapGen created by <a href="http://www.linkedin.com/in/mdittgen">Max Dittgen</a>.</p>
 
@@ -20,7 +34,36 @@
   window.onload = function (e) {
     $('.intro').fadeIn();
     $('.logo').fadeIn();
+    $('.samples').fadeIn();
   }
+  
+  // provide carousel funcxtionality
+  const carousel = document.querySelector('.carousel');
+  const images = carousel.querySelectorAll('.car_image');
+  let currentIndex = 0;
+
+  function showImage(index) {
+    images.forEach(image => {
+      image.classList.remove('active', 'left', 'right');
+    });
+
+    const length = images.length;
+    const previousIndex = (index - 1 + length) % length;
+    const nextIndex = (index + 1) % length;
+
+    images[currentIndex].classList.add('active');
+    images[previousIndex].classList.add('left');
+    images[nextIndex].classList.add('right');
+  }
+
+  images.forEach((image, index) => {
+    image.addEventListener('click', () => {
+      currentIndex = index;
+      showImage(currentIndex);
+    });
+  });
+
+  showImage(currentIndex);
   
   </script>
 
