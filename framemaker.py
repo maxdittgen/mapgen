@@ -16,17 +16,21 @@ class FrameMaker:
 
     def addText(self, place, coordinates):
         palatino = ImageFont.truetype(
-            'fonts/palatino.ttf', int(self.height / 11))
+            'fonts/palatino.ttf', int(min(self.height, self.width) / 16))
         palatino_bold = ImageFont.truetype(
-            'fonts/palatino-bold.ttf', int(self.height / 8))
+            'fonts/palatino-bold.ttf', (int(min(self.height, self.width) / 10)))
+        tahoma = ImageFont.truetype(
+            'fonts/tahoma.ttf', int(min(self.height, self.width) / 16))
+        tahoma_bold = ImageFont.truetype(
+            'fonts/tahoma-bold.ttf', (int(min(self.height, self.width) / 10)))
 
         T1 = ImageDraw.Draw(self.frame)
-        T1.text((self.width / 25, self.height - (self.height / 5.0)),
-                place, font=palatino_bold, fill=(2, 25, 111))
+        T1.text((self.width / 25, self.height - (self.height / 6.0)),
+                place, font=tahoma_bold, fill=(2, 25, 111))
 
         T2 = ImageDraw.Draw(self.frame)
-        T2.text((self.width / 25, self.height - (self.height / 10.0)),
-                coordinates, font=palatino, fill=(2, 25, 111))
+        T2.text((self.width / 25, self.height - (self.height / 11.0)),
+                coordinates, font=tahoma, fill=(2, 25, 111))
 
     # add opencv map im to frame
 
