@@ -122,23 +122,16 @@ a {
   font-size: min(40px, 5.5vw)
 }
 
-.samples img{
+.carousel {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
-  width: 50%;
-  height: auto;
-  padding: 150px 25vw;
-  animation: fadeIn 2s;
-}
-
-.carousel {
-  position: relative;
   width: 100vw;
   height: 300px;
   margin-top: auto;
   overflow: hidden;
+  padding: 150px 0vw;
 }
 
 .car_image img{
@@ -147,20 +140,30 @@ a {
   height: auto;
   opacity: 0.4;
   transition: opacity 0.5s ease-in-out;
+  animation: fadeIn 2s;
 }
 
 .car_image.active img {
   opacity: 1;
   margin-right: 25vw;
-  margin-left: 25v;
+  margin-left: 25vw;
 }
 
 .car_image.left img{
-  transform: translateX(2.5px) scale(0.4);
+  position: absolute;
+  margin-left: 2.5vw;
+  margin-right: auto;
+  scale: 0.4;
+  transform: translateX(-75%);
+  margin-bottom: 0px;
 }
 
 .car_image.right img{
-  transform: translateX() scale(0.4);
+  position: absolute;
+  margin-right: 2.5vw;
+  margin-left: auto;
+  scale: 0.4;
+  transform: translateX(315%);
 }
 
 

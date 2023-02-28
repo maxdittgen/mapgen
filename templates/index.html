@@ -6,11 +6,6 @@
   <h1>Welcome to MapGen. Generate custom map posters of your favorite locations.</h1>
 </div>
 
-<!-- picture samples -->
-<div class = "samples">
-  <img id="boston" src="{{url_for('static', filename='images/boston.png')}}" alt="movie poster" />
-</div>
-
 <!-- carousel-->
 <div class="carousel">
   <div id="image_1" class="car_image active">
@@ -20,7 +15,7 @@
     <img id="cornell" src="{{url_for('static', filename='images/cornell.png')}}" alt="map of cornell" />
   </div>
   <div id="image_3" class="car_image right">
-    <img id="pittsburgh" src="{{url_for('static', filename='images/pittsburgh.png')}}" alt="map of pittsburgh" />
+    <img id="pittsburgh" src="{{url_for('static', filename='images/pittsburgh.png')}}" alt="map of pittsburgh"/>
   </div>
 </div>
 
@@ -34,10 +29,10 @@
   window.onload = function (e) {
     $('.intro').fadeIn();
     $('.logo').fadeIn();
-    $('.samples').fadeIn();
+    $('.car_image').fadeIn();
   }
   
-  // provide carousel funcxtionality
+  // provide carousel functionality
   const carousel = document.querySelector('.carousel');
   const images = carousel.querySelectorAll('.car_image');
   let currentIndex = 0;
@@ -60,10 +55,16 @@
     image.addEventListener('click', () => {
       currentIndex = index;
       showImage(currentIndex);
+      clearInterval(myInterval);
     });
   });
 
   showImage(currentIndex);
+
+  var intervalId = window.setInterval(function(){
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }, 5000);
   
   </script>
 
