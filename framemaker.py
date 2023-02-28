@@ -33,4 +33,5 @@ class FrameMaker:
     def addImage(self, im):
         color_converted = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
         combined = Image.fromarray(color_converted)
-        self.frame.paste(combined, (self.width / 25, self.height / 10))
+        self.frame.paste(
+            combined, (int(self.width / 25), int(self.height / 25)))

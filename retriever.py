@@ -68,8 +68,8 @@ class Retriever:
     # given a style, location search string, map width (miles), and
     # height and width in inches, returns a properly scaled 300ppi print image
     def get_map(style, searchloc, radius, width, height):
-        pixel_width = width * 300
-        pixel_height = height * 300
+        pixel_width = int(width * 300)
+        pixel_height = int(height * 300)
         center_coords = Retriever.get_coords(searchloc)
         bbox = Retriever.get_bounding_box(center_coords, radius, width/height)
 
