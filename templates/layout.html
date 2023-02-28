@@ -5,9 +5,9 @@
 
   <!-- title -->
   {% if title %}
-  <title>movieRec - {{ title }}</title>
+  <title>MapGen - {{ title }}</title>
   {% else %}
-  <title>movieRec</title>
+  <title>MapGen</title>
   {% endif %}
 
   <!-- required meta tags -->
@@ -57,6 +57,11 @@
   <!-- logo -->
   <a href="{{ url_for('main') }}" class="logo">
     <img src="{{url_for('static', filename='images/logo.png')}}" />
+  </a>
+
+  <!-- github link -->
+  <a href="https://github.com/maxdittgen/mapgen" target="_blank" class="github">
+    <img src="{{url_for('static', filename='images/github-mark.png')}}" />
   </a>
 
   <!-- page content -->
