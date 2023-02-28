@@ -30,6 +30,15 @@ def make_poster(style, place, diameter, width, height):
 
 @app.route("/", methods=['GET', 'POST'])
 def main():
+    session.clear()
+
+    # define session defaults:
+    session["width"] = 10
+    session["height"] = 8
+    session["place"] = "New York, NY"
+    session["diameter"] = 5
+    session["coordinates"] = Retriever.get_coords(session["place"])
+
     return render_template('index.html')
 
 
