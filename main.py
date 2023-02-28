@@ -21,7 +21,7 @@ def make_poster(style, place, diameter, width, height):
     frame.frame.show()
 
 
-make_poster(MapStyles.BLUEPRINT, "Cornell University, NY", 2, 4, 3)
+# make_poster(MapStyles.BLUEPRINT, "Cornell University, NY", 2, 4, 3)
 
 # routing
 

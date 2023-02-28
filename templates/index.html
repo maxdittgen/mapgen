@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- tour -->
+<div class="intro">
+  <h1>Welcome to MapGen. Generate custom map posters of your favorite locations.</h1>
+</div>
+
+<!-- footer -->
+<p class="footer" id="credit">MapGen created by <a href="http://www.linkedin.com/in/mdittgen">Max Dittgen</a>.</p>
+
+<script type=text/javascript>
+
+  // fade out whole page after rating page before results page
+  window.onload = function (e) {
+    $('.intro').fadeIn();
+    $('.logo').fadeIn();
+  }
+  
+  </script>
+
+{% endblock content %}
