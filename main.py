@@ -33,19 +33,25 @@ def make_poster(style, place, diameter, width, height):
 
 @app.route("/", methods=['GET', 'POST'])
 def main():
-    session.clear()
-
     # define session defaults:
-    session["width"] = 10
-    session["height"] = 8
-    session["place"] = "New York, NY"
-    session["diameter"] = 5
-    session["coordinates"] = Retriever.get_coords(session["place"])
+    if (session == {}):
+        session["width"] = 10
+        session["height"] = 8
+        session["place"] = "New York, NY"
+        session["diameter"] = 5
+        session["coordinates"] = Retriever.get_coords(session["place"])
+        session["style"] = "WHITE"
 
     return render_template('index.html')
 
 
 # routing to map creation page
-@app.route('/create')
+@app.route('/create', methods=['GET', 'POST'])
 def create():
-    return render_template('create.html')
+    if request.method == 'POST':
+        # submission button was pressed
+        session["width"] = request.form.get('fname')
+        print("\n\n\n" + session["width"] + "\n\n", flush=True)
+        return render_template('create.html', widthEntered=session["width"])
+
+    return render_template('create.html', widthEntered=session["width"])

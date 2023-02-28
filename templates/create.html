@@ -3,15 +3,57 @@
 
 <!-- tour -->
 <div class="intro">
-  <h3>First, select a poster size</h3>
+  <h3>First, select a poster size {{widthEntered}}</h3>
 </div>
+
+<form action='{{url_for("create")}}' method='GET' name="sizeForm">
+  <div id="size_dropdowns">
+    <label for="width-dropdown">Choose your width:</label>
+    <input type="text" id="firstname" name="fname" placeholder="firstname">
+    <select id="width-dropdown" name="inwidth">
+      <option value="option1">6 inches</option>
+      <option value="option2">8 inches</option>
+      <option value="option3">10 inches</option>
+      <option value="option3">12 inches</option>
+      <option value="option3">14 inches</option>
+      <option value="option3">18 inches</option>
+      <option value="option3">20 inches</option>
+      <option value="option3">24 inches</option>
+      <option value="option3">28 inches</option>
+      <option value="option3">30 inches</option>
+      <option value="option3">36 inches</option>
+    </select>
+      <button type="submit">Set</button>
+  </div>
+
+  <!-- hidden data to submit -->
+  <input type="hidden" name="width" id="width" value= 0 />
+</form>
 
 
 <!-- footer -->
 <p class="footer" id="credit">MapGen created by <a href="http://www.linkedin.com/in/mdittgen">Max Dittgen</a>.</p>
 
+<!---->
+
+
 <script type=text/javascript>
 
+// button functionality
+$(function() {
+    $('a#size_button').bind('click', function() {
+      setTimeout(() =>{
+
+        var selectedWidth = $(#width-dropdown option:selected).val()
+        document.getElementById("width").value = selectedWidth
+        document.ratingForm.method = "POST";
+        document.ratingForm.submit();
+        document.ratingForm.method = "GET";
+      }, 750)
+
+  return false;
+});
+});
   
   </script>
 
