@@ -31,3 +31,9 @@ def make_poster(style, place, diameter, width, height):
 @app.route("/", methods=['GET', 'POST'])
 def main():
     return render_template('index.html')
+
+
+# routing to map creation page
+@app.route('/create')
+def create():
+    return render_template('create.html')
