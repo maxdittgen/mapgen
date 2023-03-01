@@ -6,6 +6,8 @@
   <h2>First, select a poster size: </h2>
 </div>
 
+<!-- poster size -->
+
 <form action='#' method='GET' name="sizeForm">
   <div id="size_dropdowns">
   <div class="dropdown_child">
@@ -56,6 +58,15 @@
   <body style="color: darkgreen;">{{message}}</body>
 </div>
 
+<div class = "location" id = "locationDiv">
+  <div class="intro">
+    <h2>Next, select a location: </h2>
+  </div>
+</div>
+
+
+
+
 
 <!-- footer -->
 <p class="footer" id="credit">MapGen created by <a href="http://www.linkedin.com/in/mdittgen">Max Dittgen</a>.</p>
@@ -64,6 +75,28 @@
 
 
 <script type=text/javascript>
+//appear on click functionality
+function openClick() {
+    document.getElementById('locationDiv').style.display = "block";
+    sessionStorage.setItem('clicked', true);
+}
+
+function closeClick() {
+    document.getElementById('locationDiv').style.display = "none";
+    sessionStorage.setItem('clicked', false);
+}
+
+window.onload = function () {
+    var data = sessionStorage.getItem('clicked');
+    if (data == 'true') {
+        openClick();
+    }
+    var message = '{{ message }}';
+    if (message === ""){
+      closeClick();
+    }
+};
+
 
 // button functionality
 $(function() {
@@ -75,6 +108,7 @@ $(function() {
         document.sizeForm.method = "POST";
         document.sizeForm.submit();
         document.sizeForm.method = "GET";
+        openClick();
       }, 750)
 
   return false;
