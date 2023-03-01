@@ -50,8 +50,7 @@ def main():
 def create():
     if request.method == 'POST':
         # submission button was pressed
-        session["width"] = request.form.get('fname')
-        print("\n\n\n" + session["width"] + "\n\n", flush=True)
-        return render_template('create.html', widthEntered=session["width"])
+        session["width"] = int(request.form.get("width"))
+        return render_template('create.html', message=session["width"])
 
-    return render_template('create.html', widthEntered=session["width"])
+    return render_template('create.html', message="none")
