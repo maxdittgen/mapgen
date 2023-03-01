@@ -3,13 +3,14 @@
 
 <!-- tour -->
 <div class="intro">
-  <h3>First, select a poster size {{message}}</h3>
+  <h2>First, select a poster size: </h2>
 </div>
 
 <form action='#' method='GET' name="sizeForm">
   <div id="size_dropdowns">
-    <label for="width-dropdown">Choose your width:</label>
-    <select id="width-dropdown">
+  <div class="dropdown_child">
+    <label for="width-dropdown"><h3>Width:</h3></label>
+    <select id="width-dropdown" class = "classic">
       <option value="6" selected="selected">6 inches</option>
       <option value="8">8 inches</option>
       <option value="10">10 inches</option>
@@ -22,14 +23,38 @@
       <option value="30">30 inches</option>
       <option value="36">36 inches</option>
     </select>
+  </div>
+  <div class="dropdown_child">
+    <label for="height-dropdown"><h3>Height:</h3></label>
+    <select id="height-dropdown" class = "classic">
+      <option value="6" selected="selected">6 inches</option>
+      <option value="8">8 inches</option>
+      <option value="10">10 inches</option>
+      <option value="12">12 inches</option>
+      <option value="14">14 inches</option>
+      <option value="18">18 inches</option>
+      <option value="20">20 inches</option>
+      <option value="24">24 inches</option>
+      <option value="28">28 inches</option>
+      <option value="30">30 inches</option>
+      <option value="36">36 inches</option>
+    </select>
+  </div>
+  <div class="dropdown_child">
     <a href="" class = "confirm_buttons" id="size_button">
-      <button>Set</button>
+      <button class= "confirmbutton">Set</button>
     </a>
+  </div>
   </div>
 
   <!-- hidden data to submit -->
   <input type="hidden" name="width" id="width" value= 0 />
+  <input type="hidden" name="height" id="height" value= 0 />
 </form>
+
+<div id = sizedisp>
+  <body style="color: darkgreen;">{{message}}</body>
+</div>
 
 
 <!-- footer -->
@@ -45,8 +70,8 @@ $(function() {
     $('a#size_button').bind('click', function() {
       setTimeout(() =>{
 
-        var e = $('#width-dropdown option:selected').val()
         document.getElementById("width").value = document.getElementById("width-dropdown").value
+        document.getElementById("height").value = document.getElementById("height-dropdown").value
         document.sizeForm.method = "POST";
         document.sizeForm.submit();
         document.sizeForm.method = "GET";

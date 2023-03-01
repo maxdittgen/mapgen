@@ -51,6 +51,7 @@ def create():
     if request.method == 'POST':
         # submission button was pressed
         session["width"] = int(request.form.get("width"))
-        return render_template('create.html', message=session["width"])
+        session["height"] = int(request.form.get("height"))
+        return render_template('create.html', message=(str(session["width"]) + " inches wide by " + str(session["height"]) + " inches tall selected"))
 
-    return render_template('create.html', message="none")
+    return render_template('create.html', message="")

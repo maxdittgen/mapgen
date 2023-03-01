@@ -221,6 +221,107 @@ a {
 	background-color: #96d35f;
 }
 
+/* dropdowns */
+select {
+
+  /* styling */
+  background-color: white;
+  border: thin solid rgb(0, 0, 71);
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+/* arrows */
+
+select.classic {
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgb(0, 0, 78) 50%),
+    linear-gradient(135deg, rgb(0, 0, 105) 50%, transparent 50%),
+    linear-gradient(to right, rgb(0, 105, 37), rgb(0, 111, 24));
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+select.classic:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    linear-gradient(to right, gray, gray);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+#size_dropdowns {
+  position: relative;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr;
+  margin-right: auto;
+  animation: fadeIn 1s;
+  padding: 0px 30px 10px;
+  height: 50px;
+}
+
+.confirmbutton {
+  transform: translateY(22px);
+  margin: 15 auto 0 auto;
+  display: block;
+  color: #96d35f;
+  background-color: #001e57;
+  font-size: 18px;
+  border: 0px solid #2d63c8;
+  border-radius: 6px;
+  padding: 11px 50px;
+  cursor: pointer
+}
+
+.confirmbutton:hover {
+  color: #001e57;
+	background-color: #96d35f;
+}
+
+#sizedisp {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1s;
+  padding: 5px 30px;
+}
+
 
 @keyframes fadeIn {
   0% {
